@@ -61,18 +61,18 @@ class Person
         "Hi #{friend.name}! It's #{self.name}. How are you?"
     end
 
-    def start_conversation(politics, weather)
-        if topic = politics
+    def start_conversation(friend, topic)
+        if topic == "politics"
+            friend.happiness -= 2
+            self.happiness -= 2
             "blah blah partisan blah lobbyist"
-            self.happiness + self.name -= 2
-        elsif topic = weather 
-            "blah blah sun blah rain"
-        end 
+        elsif topic == "weather"
+            friend.happiness += 1
+            self.happiness += 1
+            'blah blah sun blah rain'
+        elsif topic != "weather" || "politics"
+            'blah blah blah blah blah'
+        end
     end
-
-
-
-
-
 end
 
